@@ -1,0 +1,12 @@
+[
+  {
+    "id": "0",
+    "avatar": "http://localhost:8080/src/assests/logo.png",
+    "userName": "Andrew"
+  },
+  {
+    "id": "1",
+    "avatar": "url(../assets/image/Andrew.png)",
+    "userName": "Joseph"
+  }
+]
