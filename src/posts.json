@@ -1,0 +1,18 @@
+[
+  {
+    "id": "0",
+    "avatar": "../image/Piter.png",
+    "userName": "Piter",
+    "title": "Vue.js",
+    "firstWord": "JavaScript",
+    "content": "framework for building interactive web applications ⚡"
+  },
+  {
+    "id": "1",
+    "avatar": "../image/Camille.png",
+    "userName": "Camille",
+    "title": "React.js",
+    "firstWord": "Open source",
+    "content": "JavaScript library used for designing user interfaces"
+  }
+]

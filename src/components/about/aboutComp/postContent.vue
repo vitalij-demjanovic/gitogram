@@ -1,13 +1,14 @@
 <template>
-$END$
+  <div class="c-container">
+    <slot name="postContent"></slot>
+  </div>
 </template>
-
 <script>
 export default {
-name: "postContent"
+  name: 'postContent'
 }
 </script>
 
-<style scoped>
+<style lang="css" src="./aboutComp.css" scoped>
 
 </style>

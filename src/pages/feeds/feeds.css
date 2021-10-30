@@ -1,0 +1,40 @@
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    width: 175px;
+    height: 40px;
+    color: #000000;
+}
+
+.login-nav{
+    display: flex;
+    align-items: center;
+}
+
+.log-out {
+    color: #000000;
+    width: 24px;
+    margin-left: 20px;
+}
+
+.home {
+    color: #000000;
+    width: 24px;
+    margin-right: 24px;
+}
+
+.log-user-icon {
+    width: 37px;
+}
+
+.stories-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+

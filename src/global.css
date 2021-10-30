@@ -1,0 +1,71 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #000;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul, li {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+    color: #000000;
+    font-weight: 700;
+    line-height: 1em;
+}
+
+svg {
+    display: block;
+}
+
+input, button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+button {
+    cursor: pointer;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+.wrapper {
+    overflow: hidden;
+    min-height: 100%;
+    position: relative;
+}
+
+.h-container {
+    max-width: 1199px;
+    margin: 0 auto;
+}
+
+.c-container {
+    max-width: 980px;
+    margin: 0 auto;
+}
