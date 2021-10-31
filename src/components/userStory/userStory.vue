@@ -9,6 +9,8 @@
 
 <script>
 export default {
+  components: {
+  },
   props: {
     avatar: {
       type: String,

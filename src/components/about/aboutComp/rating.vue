@@ -1,14 +1,14 @@
 <template>
   <div class="rating">
-    <button name="button" class="rating-like" @click="like += 1">
+    <div class="rating-like" @click="like += 1">
       <icon name="star"></icon>
       <p class="rating-like_paragraph">Star</p>
-    </button>
+    </div>
     <span class="rating-counter_like">{{ like }}k</span>
-    <button name="button" class="rating-loop" @click="fork += 1">
+    <div class="rating-loop" @click="fork += 1">
       <icon name="loop"></icon>
       <p class="rating-like_paragraph">Fork</p>
-    </button>
+    </div>
     <span class="rating-counter_loop">{{ fork }}</span>
   </div>
 </template>

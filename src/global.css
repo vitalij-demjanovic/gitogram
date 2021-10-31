@@ -69,3 +69,35 @@ a {
     max-width: 980px;
     margin: 0 auto;
 }
+
+
+/*response*/
+
+@media (max-width: 1200px) {
+    .h-container,
+    .c-container{
+        max-width: 980px;
+    }
+}
+
+@media (max-width: 992px) {
+    .h-container,
+    .c-container{
+        max-width: 730px;
+    }
+}
+
+@media (max-width: 768px) {
+    .h-container,
+    .c-container{
+        max-width: 540px;
+    }
+}
+
+@media (max-width: 480px) {
+    .h-container,
+    .c-container{
+        max-width: 360px;
+    }
+}
+

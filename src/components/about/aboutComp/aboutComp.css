@@ -1,17 +1,18 @@
 .avatar-img {
     width: 44px;
     height: 44px;
+    margin-right: 14px;
 }
 
 .post-user-name {
     font-size: 18px;
     font-weight: 700;
-    margin-left: 14px;
 }
 
-.post-user-btn {
+.post-user {
     display: flex;
     align-items: center;
+    margin-bottom: 16px;
 }
 
 /*Rating*/
@@ -29,6 +30,7 @@
     padding: 5px 13px;
     height: 28px;
     display: flex;
+    cursor: pointer;
     font-size: 14px;
     border: 1px solid rgba(27, 31, 35, 0.15);color: #586069;
     box-shadow: 0px 1px 0px rgba(27, 31, 35, 0.04), inset 0px 2px 0px rgba(255, 255, 255, 0.02);
