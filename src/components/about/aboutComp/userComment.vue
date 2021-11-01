@@ -19,7 +19,7 @@
 
 <script>
 import icon from '@/icons/icon'
-import comments from '../../../comments.json'
+import comments from '../../../../public/comments.json'
 
 export default {
   name: 'userComment',

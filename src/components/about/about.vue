@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import dataUser from '../../data.json'
-import posts from '../../posts.json'
+import dataUser from '../../../public/data.json'
+import posts from '../../../public/posts.json'
 import postUser from '@/components/about/aboutComp/postUser'
 import postContent from '@/components/about/aboutComp/postContent'
 import rating from '@/components/about/aboutComp/rating'

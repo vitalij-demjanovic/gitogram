@@ -1,7 +1,7 @@
 [
   {
     "id": "0",
-    "avatar": "../image/Piter.png",
+    "avatar": "image/Piter.png",
     "userName": "Piter",
     "title": "Vue.js",
     "firstWord": "JavaScript",
@@ -9,7 +9,7 @@
   },
   {
     "id": "1",
-    "avatar": "../image/Camille.png",
+    "avatar": "image/Camille.png",
     "userName": "Camille",
     "title": "React.js",
     "firstWord": "Open source",

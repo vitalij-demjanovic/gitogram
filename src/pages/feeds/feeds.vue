@@ -36,7 +36,7 @@ import topLine from '../../components/topline/topline'
 import icon from '@/icons/icon'
 import userStory from '@/components/userStory/userStory'
 import about from '../../components/about/about'
-import stories from '../../data.json'
+import stories from '../../../public/data.json'
 
 export default {
   name: 'feeds',
