@@ -17,6 +17,7 @@
         <userComment></userComment>
       </div>
     </div>
+    <apisss></apisss>
   </div>
 </template>
 
@@ -27,6 +28,7 @@ import postUser from '@/components/about/aboutComp/postUser'
 import postContent from '@/components/about/aboutComp/postContent'
 import rating from '@/components/about/aboutComp/rating'
 import userComment from '@/components/about/aboutComp/userComment'
+import apisss from '@/components/about/apisss'
 
 export default {
   name: 'about',
@@ -34,7 +36,8 @@ export default {
     postUser,
     postContent,
     rating,
-    userComment
+    userComment,
+    apisss
   },
   data () {
     return {

@@ -1,0 +1,1 @@
+import desc from './galleryDes'

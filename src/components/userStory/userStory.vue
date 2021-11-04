@@ -1,10 +1,10 @@
 <template>
-  <button class="user-story-content">
+  <div class="user-story-content">
     <div class="avatar">
       <img :src="avatar" class="avatar-img" alt="avatar">
     </div>
     <div class="user-name">{{ userName }}</div>
-  </button>
+  </div>
 </template>
 
 <script>
@@ -24,6 +24,6 @@ export default {
 }
 </script>
 
-<style lang="css" src="./story.css" scoped>
+<style lang="css" src="./userStory.css" scoped>
 
 </style>
