@@ -25,3 +25,41 @@
 .post-content_text {
     margin-bottom: 32px;
 }
+/*Rating*/
+.rating {
+    display: flex;
+    align-items: center;
+    height: 27px;
+}
+
+.rating-like,
+.rating-loop,
+.rating-counter_like,
+.rating-counter_loop {
+    padding: 5px 13px;
+    height: 28px;
+    display: flex;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid rgba(27, 31, 35, 0.15);color: #586069;
+    box-shadow: 0px 1px 0px rgba(27, 31, 35, 0.04), inset 0px 2px 0px rgba(255, 255, 255, 0.02);
+}
+
+.rating-like {
+    border-radius: 6px 0 0 6px;
+    margin-right: -1px;
+}
+
+.rating-counter_loop {
+    border-radius: 0 6px 6px 0;
+
+}
+
+.rating-like:hover {
+    color: #31AE54;
+}
+
+.rating-like_paragraph,
+.rating-like_paragraph {
+    margin-left: 4px;
+}

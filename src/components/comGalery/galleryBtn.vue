@@ -1,12 +1,14 @@
 <template>
-    <button :class="['gallery-btn', {'hover-text': withHoverText}]"
-      :data-hover-text="hoverText"
-    >
-      <slot></slot>
+    <button :class="['gallery-btn', `theme-green`, {'hover-text': withHoverText}]"
+      :data-hover-text="hoverText">
+      <span class="btn-txt">
+        <slot></slot>
+      </span>
     </button>
 </template>
 
 <script>
+
 export default {
   name: 'galleryBtn',
   props: {
@@ -21,7 +23,7 @@ export default {
   }
 }
 </script>
-`
+
 <style scoped src="./comGallery.css">
 
 </style>

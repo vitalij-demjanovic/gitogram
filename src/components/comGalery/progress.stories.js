@@ -2,12 +2,12 @@ import progressBar from './progressBar'
 
 export default {
   title: 'progressBar',
-  component: { progressBar }
+  components: { progressBar }
 }
 
 export const template = () => ({
-  components: { progressBar },
-  template: `<progressBar></progressBar>`
+  components: { xProgress: progressBar },
+  template: `<x-progress></x-progress>`
 })
 
 export const Default = template.bind({})

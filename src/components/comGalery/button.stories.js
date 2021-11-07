@@ -5,13 +5,13 @@ export default {
   component: { galleryBtn }
 }
 
-export const template = () => ({
-  components: {xbutton:  galleryBtn },
+const template = () => ({
+  components: {xButton:  galleryBtn},
   template: `
-    <xbutton hover-text="Unfollow">Following</xbutton>
+    <x-button hover-text="Unfollow">Following</x-button>
   `
 })
 
-export const Default = template.bind({})
+export const Default = template.bind(template)
 
 

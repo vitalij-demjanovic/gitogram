@@ -3,7 +3,7 @@
     background: rgba(49, 174, 84, 0.3);
     margin-bottom: 12px;
     display: block;
-    width: 300px;
+    width: 100%;
     height: 2px;
     overflow: hidden;
     border-radius: 1px;
@@ -39,6 +39,6 @@
 
 
 
-.gallery-btn.hover-text{
+.gallery-btn:hover {
     background: #586069;
 }
