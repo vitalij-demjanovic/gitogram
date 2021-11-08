@@ -37,10 +37,10 @@
 </template>
 
 <script>
-import postUser from '@/components/about/aboutComp/postUser'
+import postUser from '@/components/about/aboutComp/postUser/postUser'
 import posts from '@/posts.json'
-import progressBar from '@/components/comGalery/progressBar'
-import galleryBtn from '@/components/comGalery/galleryBtn'
+import progressBar from '@/components/comGalery/progress/progressBar'
+import galleryBtn from '@/components/comGalery/button/galleryBtn'
 
 export default {
   name: 'gallery',

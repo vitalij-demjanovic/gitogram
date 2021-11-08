@@ -19,7 +19,7 @@
 
 <script>
 import icon from '@/icons/icon'
-import comments from '../../../comments.json'
+import comments from '../../../../comments.json'
 
 export default {
   name: 'userComment',
@@ -50,6 +50,6 @@ export default {
 }
 </script>
 
-<style lang="css" src="./aboutComp.css" scoped>
+<style lang="css" src="./userComment.css" scoped>
 
 </style>

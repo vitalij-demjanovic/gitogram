@@ -9,6 +9,6 @@ export default {
 }
 </script>
 
-<style lang="css" src="./aboutComp.css" scoped>
+<style lang="css" src="./postContent.css" scoped>
 
 </style>

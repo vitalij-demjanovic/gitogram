@@ -24,6 +24,6 @@ export default {
 }
 </script>
 
-<style scoped src="./comGallery.css">
+<style scoped src="./button.css">
 
 </style>

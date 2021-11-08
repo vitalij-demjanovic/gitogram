@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import * as api from '../../../api'
+import * as api from '../../../../api'
 
 export default {
   name: 'rating',
@@ -30,7 +30,3 @@ export default {
   }
 }
 </script>
-
-<style lang="css" src="./aboutComp.css" scoped>
-
-</style>

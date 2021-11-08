@@ -4,4 +4,4 @@
   </div>
 </template>
 
-<style scoped lang="css" src="./comGallery.css"></style>
+<style scoped lang="css" src="./progress.css"></style>

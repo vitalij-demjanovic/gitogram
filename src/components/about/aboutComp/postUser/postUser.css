@@ -1,0 +1,16 @@
+.avatar-img {
+    width: 44px;
+    height: 44px;
+    margin-right: 14px;
+}
+
+.post-user-name {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.post-user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}

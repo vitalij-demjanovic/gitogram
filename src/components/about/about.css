@@ -25,7 +25,9 @@
 .post-content_text {
     margin-bottom: 32px;
 }
+
 /*Rating*/
+
 .rating {
     display: flex;
     align-items: center;

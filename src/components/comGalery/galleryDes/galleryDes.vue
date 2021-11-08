@@ -8,6 +8,6 @@ export default {
 }
 </script>
 
-<style scoped lang="css" src="./comGallery.css">
+<style scoped lang="css" src="../comGallery.css">
 
 </style>

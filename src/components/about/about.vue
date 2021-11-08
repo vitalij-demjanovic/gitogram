@@ -16,7 +16,7 @@
                       <p class="rating-like_paragraph">Star</p>
                     </div>
                     <span class="rating-counter_like">{{ item.stargazers_count }}</span>
-                    <div class="rating-loop" @click="item.forkss += 1">
+                    <div class="rating-loop" @click="item.forks += 1">
                       <icon name="loop"></icon>
                       <p class="rating-like_paragraph">Fork</p>
                     </div>
@@ -37,10 +37,10 @@
 import icon from '@/icons/icon'
 import dataUser from '../../data.json'
 import posts from '../../posts.json'
-import postUser from '@/components/about/aboutComp/postUser'
-import postContent from '@/components/about/aboutComp/postContent'
-import rating from '@/components/about/aboutComp/rating'
-import userComment from '@/components/about/aboutComp/userComment'
+import postUser from '@/components/about/aboutComp/postUser/postUser'
+import postContent from '@/components/about/aboutComp/postContent/postContent'
+import rating from '@/components/about/aboutComp/rating/rating'
+import userComment from '@/components/about/aboutComp/userComment/userComment'
 import * as api from '../../api'
 
 import Andrew from '../../../public/image/Andrew.png'

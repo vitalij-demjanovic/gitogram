@@ -25,6 +25,6 @@ export default {
 }
 </script>
 
-<style lang="css" src="./aboutComp.css" scoped>
+<style lang="css" src="./postUser.css" scoped>
 
 </style>

@@ -25,20 +25,3 @@
         width: 100%;
     }
 }
-
-/*Btn*/
-
-.gallery-btn {
-    background: #31AE54;
-    width: 270px;
-    padding: 11px 0;
-    color: #ffff;
-    font-weight: 700;
-    border-radius: 5px;
-}
-
-
-
-.gallery-btn:hover {
-    background: #586069;
-}
