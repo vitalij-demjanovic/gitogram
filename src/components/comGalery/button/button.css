@@ -7,8 +7,6 @@
     border-radius: 5px;
 }
 
-
-
-.gallery-btn:hover {
-    background: #586069;
+.hover-text {
+    background-color: #586069;
 }

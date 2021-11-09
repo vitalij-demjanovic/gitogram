@@ -25,6 +25,4 @@ export default {
 }
 </script>
 
-<style lang="css" src="./postUser.css" scoped>
-
-</style>
+<style lang="css" src="./postUser.css" scoped></style>

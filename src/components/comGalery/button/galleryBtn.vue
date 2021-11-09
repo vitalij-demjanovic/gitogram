@@ -1,8 +1,7 @@
 <template>
-    <button :class="['gallery-btn', `theme-green`, {'hover-text': withHoverText}]"
-      :data-hover-text="hoverText">
-      <span class="btn-txt">
-        <slot></slot>
+    <button :class="['gallery-btn', {'hover-text': isActive}]"  @click="isActive = !isActive">
+      <span  class="btn-text">
+        {{ isActive ? 'Unfollow' : 'Follow' }}
       </span>
     </button>
 </template>
@@ -11,19 +10,12 @@
 
 export default {
   name: 'galleryBtn',
-  props: {
-    hoverText: {
-      type: String
-    }
-  },
-  computed: {
-    withHoverText () {
-      return this.hoverText?.length
+  data () {
+    return {
+      isActive: false
     }
   }
 }
 </script>
 
-<style scoped src="./button.css">
-
-</style>
+<style scoped src="./button.css"></style>

@@ -5,8 +5,7 @@
 
 <script>
 import { feeds } from '@/pages/feeds'
-import { gallery } from '@/pages/galery'
-
+import gallery from '@/pages/galery/gallery'
 export default {
 
   name: 'App',

@@ -5,7 +5,7 @@ export default {
   components: { progressBar }
 }
 
-export const template = () => ({
+const template = () => ({
   components: { xProgress: progressBar },
   template: `<x-progress></x-progress>`
 })
