@@ -1,7 +1,7 @@
 <template>
   <div class="stor-content">
     <div class="stor-content_progress">
-      <progressBar :active="true"></progressBar>
+      <progressBar v-if="active"></progressBar>
     </div>
     <div class="stor-content_user">
       <postUser :avatar="avatar" :user-name="name"></postUser>

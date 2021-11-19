@@ -1,7 +1,5 @@
 <template>
-  <div class="progress-bar">
-    <div class="progress-bar_full" :class="[{ 'active':isActive }]" v-if="isActive = active"></div>
-  </div>
+  <div class="progress-bar"></div>
 </template>
 
 <script>

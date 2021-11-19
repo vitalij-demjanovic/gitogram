@@ -1,11 +1,10 @@
 .t-gallery {
     background-color: #000000;
-    max-height: 990px;
+    max-height: 100%;
     padding: 45px 0;
 }
 
 .nav-galley {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 91px;
 }

@@ -9,7 +9,8 @@
     border-radius: 1px;
 }
 
-.progress-bar_full.active {
+.progress-bar:before {
+    content: '';
     background: #31AE54;
     height: 2px;
     display: block;

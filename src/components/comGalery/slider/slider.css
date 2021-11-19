@@ -1,7 +1,7 @@
 .slider-wrapper {
     position: relative;
     overflow: hidden;
-    margin-left: -188px;
+    margin-left: -322px;
     height: 760px;
 }
 
@@ -9,7 +9,7 @@
     display: flex;
     position: absolute;
     align-items: center;
-    top: 10%;
+    padding-top: 91px;
     left: 50%;
     transition: all 0.5s ease;
 }

@@ -5,12 +5,7 @@
 <script>
 
 export default {
-  name: 'sliderCard',
-  props: {
-    owner: String,
-    avatar_url: String,
-    name: String
-  }
+  name: 'sliderCard'
 }
 </script>
 
