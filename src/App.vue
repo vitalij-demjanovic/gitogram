@@ -1,18 +1,10 @@
 <template>
-  <feeds></feeds>
-  <gallery></gallery>
+  <router-view></router-view>
 </template>
 
 <script>
-import { feeds } from '@/pages/feeds'
-import gallery from '@/pages/galery/gallery'
 export default {
-
-  name: 'App',
-  components: {
-    feeds,
-    gallery
-  }
+  name: 'App'
 }
 
 </script>

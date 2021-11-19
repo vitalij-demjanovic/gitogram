@@ -2,10 +2,11 @@
     width: 44px;
     height: 44px;
     margin-right: 14px;
+    border-radius: 50%;
 }
 
 .post-user-name {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 700;
 }
 

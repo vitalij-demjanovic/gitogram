@@ -1,8 +1,8 @@
 <template>
   <div class="c-container">
     <div class="posts">
-      <div class="post" v-for="(item, index) in items" :key="item.id">
-        <postUser :avatar="avatars[index]" :user-name="item.name"></postUser>
+      <div class="post" v-for="item in items" :key="item.id">
+        <postUser :avatar="item.owner.avatar_url" :user-name="item.name"></postUser>
         <postContent>
           <template #postContent>
             <div class="post-content">
@@ -43,17 +43,6 @@ import rating from '@/components/about/aboutComp/rating/rating'
 import userComment from '@/components/about/aboutComp/userComment/userComment'
 import * as api from '../../api'
 
-import Andrew from '../../../public/image/Andrew.png'
-import Camille from '../../../public/image/Camille.png'
-import Caimlr from '../../../public/image/Camilr.png'
-import Can from '../../../public/image/Can.png'
-import Diself from '../../../public/image/Diself.png'
-import Gartor from '../../../public/image/Gartor.png'
-import Iloveanime from '../../../public/image/Iloveanime.png'
-import josh from '../../../public/image/josh.png'
-import Marselle from '../../../public/image/Marselle.png'
-import Piter from '../../../public/image/Piter.png'
-
 export default {
   name: 'about',
   components: {
@@ -67,22 +56,12 @@ export default {
     return {
       posts,
       dataUser,
-      items: [],
-      avatars: [
-        Andrew,
-        Camille,
-        Caimlr,
-        Can,
-        Diself,
-        Gartor,
-        Iloveanime,
-        josh,
-        Marselle,
-        Piter
-      ]
+      items: []
     }
   },
   props: {
+    owner: String,
+    avatar_url: String,
     name: String,
     language: String,
     description: String,

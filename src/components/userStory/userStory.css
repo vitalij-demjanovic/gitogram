@@ -12,6 +12,14 @@
     border: 2px solid #FAFAFA;
 }
 
-.user-name{
+.user-name {
+    font-size: 13px;
+    white-space: nowrap;
+    width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-story-content{
     text-align: center;
 }

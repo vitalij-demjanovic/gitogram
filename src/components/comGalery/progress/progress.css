@@ -9,7 +9,7 @@
     border-radius: 1px;
 }
 
-.progress-bar_full {
+.progress-bar_full.active {
     background: #31AE54;
     height: 2px;
     display: block;
