@@ -1,0 +1,35 @@
+.stor-content {
+    background-color: #F1F1F1;
+    width: 302px;
+    margin-right: 48px;
+    padding: 7px 0 25px;
+    border-radius: 8px;
+    transition: all 0.5s ease;
+}
+
+.stor-content.active {
+    transform: scale(1.1);
+}
+
+.stor-content_user,
+.stor-content_progress {
+    margin-bottom: 10px;
+    padding: 0 15px;
+}
+
+.stor-content_placeholder {
+    padding: 15px 15px 37px;
+    border-bottom: 1px solid #CACACA;
+    margin-bottom: 24px;
+}
+
+.stor-content_user {
+    border-bottom: 1px solid #CACACA;
+}
+
+.stor-content_btn {
+    display: flex;
+    justify-content: center;
+}
+
+

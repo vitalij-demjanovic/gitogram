@@ -1,15 +1,10 @@
 <template>
-  <feeds></feeds>
+  <router-view></router-view>
 </template>
 
 <script>
-import { feeds } from '@/pages/feeds'
-
 export default {
-  name: 'App',
-  components: {
-    feeds
-  }
+  name: 'App'
 }
 
 </script>

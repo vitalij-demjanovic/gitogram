@@ -11,7 +11,7 @@
           </button>
           <div class="log-photo">
             <button class="log-user-icon">
-              <icon name="logPhoto"></icon>
+              <userLogin></userLogin>
             </button>
           </div>
           <button class="log-out">
@@ -22,8 +22,9 @@
     </template>
     <template #stories>
       <ul class="stories-item">
-        <li class="story" v-for="story in stories" :key="story.id">
-          <userStory :avatar="story.avatar" :user-name="story.userName"></userStory>
+        <li class="story" v-for="item in items" :key="item.id" @click="gallery">
+          <userStory :avatar="item.owner.avatar_url" :user-name="item.name"></userStory>
+          <router-link to="/gallery"></router-link>
         </li>
       </ul>
     </template>
@@ -33,10 +34,12 @@
 
 <script>
 import topLine from '../../components/topline/topline'
-import icon from '@/icons/icon'
+import icon from '../../icons/icon'
 import userStory from '@/components/userStory/userStory'
 import about from '../../components/about/about'
 import stories from '../../data.json'
+import userLogin from '@/components/userLogin/userLogin'
+import * as api from '@/api'
 
 export default {
   name: 'feeds',
@@ -44,11 +47,32 @@ export default {
     topLine,
     icon,
     userStory,
-    about
+    about,
+    userLogin
+  },
+  props: {
+    owner: String,
+    avatar_url: String,
+    name: String
+  },
+  methods: {
+    gallery () {
+      this.$router.push('/gallery')
+    }
+  },
+  async created () {
+    try {
+      const { data } = await api.trandings.getTrending()
+      this.items = data.items
+      console.log(data.items)
+    } catch (err) {
+      console.log('error')
+    }
   },
   data () {
     return {
-      stories
+      stories,
+      items: []
     }
   }
 }

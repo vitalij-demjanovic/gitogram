@@ -1,0 +1,26 @@
+.gallery-btn {
+    background: #31AE54;
+    width: 217px;
+    padding: 11px 0;
+    color: #ffff;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+
+.gallery-btn:hover {
+    background: #586069;
+}
+
+.gallery-btn:hover > .btn-text {
+    font-size: 0;
+}
+
+.gallery-btn:hover > .btn-text:after {
+    font-size: 13px;
+}
+
+.btn-text::after {
+    content: attr(hover-text);
+    font-size: 0;
+}
