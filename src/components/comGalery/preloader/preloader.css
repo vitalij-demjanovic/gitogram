@@ -1,0 +1,16 @@
+.preloader {
+    width: 62px;
+    height: 62px;
+    align-items: center;
+    margin: 0 auto;
+    animation: circle 1s linear 1s infinite;
+}
+
+@keyframes circle {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

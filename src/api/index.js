@@ -1,1 +1,2 @@
-export * as trandings from './rest/trendigs'
+export * as trendings from './rest/trendigs'
+export * as readme from './rest/readme'

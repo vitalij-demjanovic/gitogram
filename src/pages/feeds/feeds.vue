@@ -37,8 +37,8 @@ import topLine from '../../components/topline/topline'
 import icon from '../../icons/icon'
 import userStory from '@/components/userStory/userStory'
 import about from '../../components/about/about'
-import stories from '../../data.json'
 import userLogin from '@/components/userLogin/userLogin'
+// import { mapState, mapActions } from 'vuex'
 import * as api from '@/api'
 
 export default {
@@ -49,6 +49,11 @@ export default {
     userStory,
     about,
     userLogin
+  },
+  data () {
+    return {
+      items: []
+    }
   },
   props: {
     owner: String,
@@ -62,17 +67,11 @@ export default {
   },
   async created () {
     try {
-      const { data } = await api.trandings.getTrending()
+      const { data } = await api.trendings.getTrending()
       this.items = data.items
       console.log(data.items)
-    } catch (err) {
-      console.log('error')
-    }
-  },
-  data () {
-    return {
-      stories,
-      items: []
+    } catch (error) {
+      console.log(error)
     }
   }
 }

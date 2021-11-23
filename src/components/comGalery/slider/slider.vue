@@ -3,7 +3,7 @@
     <div class="slider" ref="slider">
       <ul>
         <li
-          v-for="(item, ndx) in items"
+          v-for="(item, ndx) in trendings"
           :key="item.id" ref="item"
         >
           <div class="arrow-prev" v-if="ndx > 0" @click="moveSlider(ndx - 1)" :class="[{'active': ndx === slideNdx}]">
@@ -11,9 +11,11 @@
           </div>
           <stor
             :avatar="item.owner.avatar_url"
-            :name="item.name"
+            :name="item.owner.login"
             :class="[{'active': ndx === slideNdx}]"
             :active="slideNdx === ndx"
+            :content="item.readme"
+            :id="item.id"
           >
           </stor>
             <div class="arrows-next" v-if="ndx < 9" @click="moveSlider(ndx + 1)" :class="[{'active': ndx === slideNdx}]">
@@ -28,13 +30,19 @@
 <script>
 import stor from '@/components/comGalery/sliderStor/stor'
 import icon from '@/icons/icon'
-import * as api from '@/api'
+import { mapState, mapActions } from 'vuex'
+// import * as api from '@/api'
 
 export default {
   name: 'slider',
   components: {
     icon,
     stor
+  },
+  computed: {
+    ...mapState({
+      trendings: state => state.data
+    })
   },
   props: {
     active: Boolean,
@@ -51,6 +59,10 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      fetchTrending: 'fetchTrending',
+      fetchReadme: 'fetchReadme'
+    }),
     moveSlider (slideNdx) {
       const { slider, item } = this.$refs
       const widSlide = parseInt(getComputedStyle(item).getPropertyValue('width'), 10)
@@ -58,20 +70,24 @@ export default {
       this.sliderPosition = -(widSlide * slideNdx)
       slider.style.transform = `translateX(${this.sliderPosition}px)`
       console.log(this.sliderPosition)
+    },
+    async handleSlider (slideNdx) {
+      this.moveSlider(slideNdx)
+      await this.loadReadme()
+    },
+    async loadReadme () {
+      await this.fetchReadmeActiveSlide()
+    },
+    async fetchReadmeActiveSlide () {
+      const { id, owner, name } = this.trendings[this.slideNdx]
+      await this.fetchReadme({ id, owner: owner.login, repo: name })
     }
   },
   async created () {
-    try {
-      const { data } = await api.trandings.getTrending()
-      this.items = data.items
-      console.log(data.items)
-    } catch (err) {
-      console.log('error')
-    }
+    await this.fetchTrending()
+    await this.loadReadme()
   }
 }
 </script>
 
-<style scoped lang="css" src="./slider.css">
-
-</style>
+<style scoped lang="css" src="./slider.css"></style>

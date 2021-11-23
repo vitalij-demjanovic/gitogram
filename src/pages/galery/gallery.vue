@@ -29,7 +29,7 @@ export default {
   },
   async created () {
     try {
-      const { data } = await api.trandings.getTrending()
+      const { data } = await api.trendings.getTrending()
       this.items = data.items
       console.log(data.items)
     } catch (err) {
