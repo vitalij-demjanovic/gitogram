@@ -1,0 +1,49 @@
+.authorization {
+    padding: 100px 0 0;
+}
+
+.authorization-title {
+    width: 200px;
+    height: 46px;
+    display: block;
+    margin: 0 auto 12px;
+}
+
+.authorization-text {
+    text-align: center;
+    font-size: 18px;
+    color: #586069;
+    margin-bottom: 38px;
+}
+
+.authorization-login {
+    background: #31AE54;
+    margin: 0 auto 86px;
+    cursor: pointer;
+    width: 252px;
+    color: #FAFAFA;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 24px;
+    border-radius: 5px;
+}
+
+.login-span {
+    margin-right: 12px;
+}
+
+.aut-img_item {
+    display: block;
+    margin: 0 auto;
+}
+
+.authorization-span {
+    text-align: center;
+}
+
+.authorization-span_text {
+    color: #586069;
+}
+

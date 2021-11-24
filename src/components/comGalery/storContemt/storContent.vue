@@ -1,16 +1,10 @@
 <template>
-  <p class="stor-paragraph">{{ readme }}</p>
+  <div class="stor-paragraph"></div>
 </template>
 
 <script>
 export default {
-  name: 'storContent',
-  props: {
-    readme: {
-      type: String,
-      required: true
-    }
-  }
+  name: 'storContent'
 }
 </script>
 

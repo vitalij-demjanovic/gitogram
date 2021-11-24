@@ -6,8 +6,7 @@
     <div class="stor-content_user">
       <postUser :avatar="avatar" :user-name="name"></postUser>
     </div>
-    <div class="stor-content_text">
-      <storContent :readme="content"></storContent>
+    <div class="stor-content_text" v-html="content">
     </div>
     <div class="stor-content_btn">
       <galleryBtn></galleryBtn>
@@ -21,7 +20,6 @@ import postUser from '@/components/about/aboutComp/postUser/postUser'
 import galleryBtn from '@/components/comGalery/button/galleryBtn'
 // import placeholder from '@/components/comGalery/placeholder/placeholder'
 // import preloader from '@/components/comGalery/preloader/preloader'
-import storContent from '@/components/comGalery/storContemt/storContent'
 
 export default {
   name: 'stor',
@@ -37,8 +35,8 @@ export default {
   components: {
     progressBar,
     postUser,
-    galleryBtn,
-    storContent
+    galleryBtn
+    // storContent
     // preloader
     // placeholder
   }
