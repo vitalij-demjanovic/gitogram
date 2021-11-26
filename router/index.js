@@ -3,15 +3,27 @@ import * as api from '@/api'
 import Home from '../src/pages/feeds/feeds'
 import Auth from '../src/pages/auth/auth'
 import gallery from '../src/pages/galery/gallery'
+import about from '@/components/about/about'
+import profile from '@/components/profile/profile'
 
 const routes = [
   {
     path: '/',
     component: Home,
-    name: 'Home'
+    name: 'Home',
+    children: [
+      {
+        path: '',
+        component: about
+      },
+      {
+        path: '/profile',
+        component: profile
+      }
+    ]
   },
   {
-    path: '/gallery',
+    path: '/gallery/',
     component: gallery,
     name: 'gallery'
   },

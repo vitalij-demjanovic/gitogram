@@ -12,7 +12,7 @@
         </button>
       </div>
     </div>
-    <slider></slider>
+    <slider :initialSlide="Number($route.params.initialSlide)"></slider>
   </div>
 </template>
 

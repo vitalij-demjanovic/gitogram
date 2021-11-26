@@ -19,6 +19,7 @@ pnpm-debug.log*
 # Editor directories and files
 .idea
 .vscode
+/src/pages/auth/consts.js
 *.suo
 *.ntvs*
 *.njsproj

@@ -18,11 +18,28 @@
 }
 
 .stor-content_text {
-    padding: 15px 15px 37px;
-    height: 302px;
-    overflow: auto;
+    padding: 15px;
+    height: 350px;
+    width: 95%;
+    overflow-y: auto;
+    overflow-x: hidden;
     border-bottom: 1px solid #CACACA;
-    margin-bottom: 24px;
+    margin: 0 auto 24px;
+    position: relative;
+}
+
+
+.stor-content_text::-webkit-scrollbar {
+    width: 8px;
+}
+
+.stor-content_text::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.stor-content_text::-webkit-scrollbar-thumb {
+    background: #31AE54;
+    border-radius: 8px;
 }
 
 .stor-content_user {

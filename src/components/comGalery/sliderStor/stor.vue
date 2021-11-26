@@ -6,7 +6,10 @@
     <div class="stor-content_user">
       <postUser :avatar="avatar" :user-name="name"></postUser>
     </div>
-    <div class="stor-content_text" v-html="content">
+    <div class="stor-content_text" >
+      <div class="content-text" v-if="content" v-html="content"></div>
+      <preloader v-else-if="loading"></preloader>
+      <placeholder v-else></placeholder>
     </div>
     <div class="stor-content_btn">
       <galleryBtn></galleryBtn>
@@ -18,13 +21,14 @@
 import progressBar from '../../comGalery/progress/progressBar'
 import postUser from '@/components/about/aboutComp/postUser/postUser'
 import galleryBtn from '@/components/comGalery/button/galleryBtn'
-// import placeholder from '@/components/comGalery/placeholder/placeholder'
-// import preloader from '@/components/comGalery/preloader/preloader'
+import placeholder from '@/components/comGalery/placeholder/placeholder'
+import preloader from '@/components/comGalery/preloader/preloader'
 
 export default {
   name: 'stor',
   props: {
     active: Boolean,
+    loading: Boolean,
     avatar: String,
     name: String,
     content: {
@@ -32,13 +36,13 @@ export default {
       required: true
     }
   },
+  emits: ['onFollow'],
   components: {
     progressBar,
     postUser,
-    galleryBtn
-    // storContent
-    // preloader
-    // placeholder
+    galleryBtn,
+    preloader,
+    placeholder
   }
 }
 </script>

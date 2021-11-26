@@ -5,18 +5,19 @@
            :key="item.id">
         <li ref="item"
         >
-          <div class="arrow-prev" v-if="ndx > 0" @click="moveSlider(ndx - 1)" :class="[{'active': ndx === slideNdx}]">
+          <div class="arrow-prev" v-if="ndx > 0" @click="handleSlider(ndx - 1)" :class="[{'active': ndx === slideNdx}]">
             <icon name="back"></icon>
           </div>
           <stor
             :avatar="item.owner.avatar_url"
             :name="item.owner.login"
-            :class="[{'active': ndx === slideNdx}]"
+            :class="[{'active': ndx === slideNdx},]"
             :active="slideNdx === ndx"
+            :loading="slideNdx === ndx && loading"
             :content="item.readme"
           >
           </stor>
-            <div class="arrows-next" v-if="ndx < 9" @click="moveSlider(ndx + 1)" :class="[{'active': ndx === slideNdx}]">
+            <div class="arrows-next" v-if="ndx < 9" @click="handleSlider(ndx + 1)" :class="[{'active': ndx === slideNdx}]">
               <icon name="next"></icon>
             </div>
         </li>
@@ -32,25 +33,31 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'slider',
+  props: {
+    initialSlide: {
+      type: Number
+    }
+  },
   components: {
     icon,
     stor
   },
   computed: {
     ...mapState({
-      trendings: state => state.data
+      trendings: state => state.trendings.data
     })
   },
   data () {
     return {
       slideNdx: 0,
-      sliderPosition: 0
+      sliderPosition: 0,
+      loading: false
     }
   },
   methods: {
     ...mapActions({
-      fetchTrending: 'fetchTrending',
-      fetchReadme: 'fetchReadme'
+      fetchTrending: 'trendings/fetchTrending',
+      fetchReadme: 'trendings/fetchReadme'
     }),
     async fetchReadmeActiveSlide () {
       const { id, owner, name } = this.trendings[this.slideNdx]
@@ -64,7 +71,8 @@ export default {
       slider.style.transform = `translateX(${this.sliderPosition}px)`
       console.log(this.sliderPosition)
     },
-    async loadReadme () {
+    async  loadReadme () {
+      this.loading = true
       await this.fetchReadmeActiveSlide()
     },
     async handleSlider (slideNdx) {
@@ -72,7 +80,12 @@ export default {
       await this.loadReadme()
     }
   },
-  async created () {
+  async mounted () {
+    if (this.initialSlide) {
+      const ndx = this.trendings.findIndex((item) => item.id === this.initialSlide)
+      console.log('logo')
+      await this.handleSlider(ndx)
+    }
     await this.fetchTrending()
     await this.loadReadme()
   }

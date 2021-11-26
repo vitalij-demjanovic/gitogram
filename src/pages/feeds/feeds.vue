@@ -3,18 +3,24 @@
     <template #navBar>
       <div class="nav-bar">
         <div class="logo">
-          <icon name="logo"></icon>
+          <router-link to="/">
+            <icon name="logo"></icon>
+          </router-link>
         </div>
         <div class="login-nav">
           <button class="home">
-            <icon name="home"></icon>
+            <router-link to="/">
+              <icon name="home"></icon>
+            </router-link>
           </button>
           <div class="log-photo">
             <button class="log-user-icon">
-              <userLogin></userLogin>
+              <router-link to="profile">
+                <userLogin></userLogin>
+              </router-link>
             </button>
           </div>
-          <button class="log-out">
+          <button class="log-out" @click="logout">
             <icon name="logOut"></icon>
           </button>
         </div>
@@ -22,24 +28,30 @@
     </template>
     <template #stories>
       <ul class="stories-item">
-        <li class="story" v-for="item in items" :key="item.id" @click="gallery">
-          <userStory :avatar="item.owner.avatar_url" :user-name="item.name"></userStory>
-          <router-link to="/gallery"></router-link>
+        <li class="story" v-for="item in trendings" :key="item.id">
+          <userStory
+            :avatar="item.owner.avatar_url"
+            :user-name="item.name"
+            :id="item.id"
+            @click="storyPress(item.id)"
+          >
+          </userStory>
         </li>
       </ul>
     </template>
   </topLine>
-  <about></about>
+  <div class="about">
+    <router-view name="default"></router-view>
+    <router-view name="extra"></router-view>
+  </div>
 </template>
 
 <script>
 import topLine from '../../components/topline/topline'
 import icon from '../../icons/icon'
 import userStory from '@/components/userStory/userStory'
-import about from '../../components/about/about'
 import userLogin from '@/components/userLogin/userLogin'
-// import { mapState, mapActions } from 'vuex'
-import * as api from '@/api'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'feeds',
@@ -47,32 +59,25 @@ export default {
     topLine,
     icon,
     userStory,
-    about,
     userLogin
   },
-  data () {
-    return {
-      items: []
-    }
-  },
-  props: {
-    owner: String,
-    avatar_url: String,
-    name: String
+  computed: {
+    ...mapState({
+      trendings: state => state.trendings.data,
+      user: state => state.user.user
+    })
   },
   methods: {
-    gallery () {
-      this.$router.push('/gallery')
+    ...mapActions({
+      fetchTrending: 'trendings/fetchTrending',
+      logout: 'user/logout'
+    }),
+    storyPress (id) {
+      this.$router.push({ name: 'gallery', params: { initialSlide: id } })
     }
   },
   async created () {
-    try {
-      const { data } = await api.trendings.getTrending()
-      this.items = data.items
-      console.log(data.items)
-    } catch (error) {
-      console.log(error)
-    }
+    await this.fetchTrending()
   }
 }
 </script>

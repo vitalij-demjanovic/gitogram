@@ -1,8 +1,8 @@
 <template>
   <div class="c-container">
     <div class="posts">
-      <div class="post" v-for="item in items" :key="item.id">
-        <postUser :avatar="item.owner.avatar_url" :user-name="item.name"></postUser>
+      <div class="post" v-for="item in starred" :key="item.id">
+        <postUser :avatar="item.owner.avatar_url" :user-name="item.owner.login"></postUser>
         <postContent>
           <template #postContent>
             <div class="post-content">
@@ -35,13 +35,11 @@
 
 <script>
 import icon from '@/icons/icon'
-import dataUser from '../../data.json'
-import posts from '../../posts.json'
 import postUser from '@/components/about/aboutComp/postUser/postUser'
 import postContent from '@/components/about/aboutComp/postContent/postContent'
 import rating from '@/components/about/aboutComp/rating/rating'
 import userComment from '@/components/about/aboutComp/userComment/userComment'
-import * as api from '../../api'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'about',
@@ -52,30 +50,18 @@ export default {
     userComment,
     icon
   },
-  data () {
-    return {
-      posts,
-      dataUser,
-      items: []
-    }
+  methods: {
+    ...mapActions({
+      fetchStarred: 'userStarred/fetchStarred'
+    })
   },
-  props: {
-    owner: String,
-    avatar_url: String,
-    name: String,
-    language: String,
-    description: String,
-    stargazers_count: Number,
-    forks: Number
+  computed: {
+    ...mapState({
+      starred: state => state.userStarred.starred
+    })
   },
   async created () {
-    try {
-      const { data } = await api.trendings.getTrending()
-      this.items = data.items
-      console.log(data.items)
-    } catch (err) {
-      console.log('error')
-    }
+    await this.fetchStarred()
   }
 }
 </script>

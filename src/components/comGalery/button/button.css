@@ -1,11 +1,24 @@
 .gallery-btn {
     background: #31AE54;
     width: 217px;
-    padding: 11px 0;
+    height: 35px;
     color: #ffff;
+    padding: 8px;
     font-weight: 700;
     border-radius: 5px;
     transition: all 0.5s ease;
+}
+
+.grey {
+    background: #586069;
+}
+
+.gallery-btn.grey:hover > .btn-text {
+    font-size: 13px;
+}
+
+.gallery-btn.grey:hover > .btn-text:after {
+    font-size: 0;
 }
 
 .gallery-btn:hover {
@@ -24,3 +37,20 @@
     content: attr(hover-text);
     font-size: 0;
 }
+
+.pre-white {
+    margin: 0 auto;
+    width: 20px;
+    height: 20px;
+    animation: circle 1s linear 1s infinite;
+}
+
+@keyframes circle {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
