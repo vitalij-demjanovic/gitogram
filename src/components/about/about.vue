@@ -1,33 +1,36 @@
 <template>
   <div class="c-container">
     <div class="posts">
-      <div class="post" v-for="item in starred" :key="item.id">
-        <postUser :avatar="item.owner.avatar_url" :user-name="item.owner.login"></postUser>
+      <div class="post" v-for="{ id, owner, language, description, stargazers_count, forks, name, issue } in issues" :key="id">
+        <postUser :avatar="owner.avatar_url" :user-name="owner.login"></postUser>
         <postContent>
           <template #postContent>
             <div class="post-content">
-              <h1 class="post-content_title">{{ item.language }}</h1>
-              <p class="post-content_text">{{ item.description }}</p>
+              <h1 class="post-content_title">{{ language }}</h1>
+              <p class="post-content_text">{{ description }}</p>
               <rating>
                 <template #rating>
                   <div class="rating">
-                    <div class="rating-like" @click="item.stargazers_count += 1">
+                    <div class="rating-like" @click="stargazers_count += 1">
                       <icon name="star"></icon>
                       <p class="rating-like_paragraph">Star</p>
                     </div>
-                    <span class="rating-counter_like">{{ item.stargazers_count }}</span>
-                    <div class="rating-loop" @click="item.forks += 1">
+                    <span class="rating-counter_like">{{ stargazers_count }}</span>
+                    <div class="rating-loop" @click="forks += 1">
                       <icon name="loop"></icon>
                       <p class="rating-like_paragraph">Fork</p>
                     </div>
-                    <span class="rating-counter_loop">{{ item.forks }}</span>
+                    <span class="rating-counter_loop">{{ forks }}</span>
                   </div>
                 </template>
               </rating>
             </div>
           </template>
         </postContent>
-        <userComment></userComment>
+        <userComment
+          :issues="issue"
+          @loadContent="loadIssues({ owner: owner.login, repo: name })">
+        </userComment>
       </div>
     </div>
   </div>
@@ -50,14 +53,22 @@ export default {
     userComment,
     icon
   },
+  props: {
+    comIN: Boolean
+  },
   methods: {
     ...mapActions({
-      fetchStarred: 'userStarred/fetchStarred'
-    })
+      fetchStarred: 'starred/fetchIssues',
+      fetchIssues: 'starred/fetchIssues'
+    }),
+    loadIssues ({ owner, repo }) {
+      this.fetchIssues({ owner, repo })
+    }
   },
   computed: {
     ...mapState({
-      starred: state => state.userStarred.starred
+      starred: state => state.starred.data,
+      issues: state => state.starred.data
     })
   },
   async created () {

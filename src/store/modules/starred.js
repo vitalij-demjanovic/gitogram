@@ -3,12 +3,15 @@ import * as api from '@/api'
 export default {
   namespaced: true,
   state: {
-    starred: []
+    data: []
   },
   getters: {},
   mutations: {
     SET_USER_STARRED (state, starred) {
-      state.starred = starred
+      state.data = starred
+    },
+    SET_USER_ISSUES (state, issues) {
+      state.data = issues
     }
   },
   actions: {
@@ -16,6 +19,15 @@ export default {
       try {
         const { data } = await api.user.getUserLaiks()
         commit('SET_USER_STARRED', data)
+        console.log(data)
+      } catch (e) {
+        console.log(e)
+      }
+    },
+    async fetchIssues ({ commit }, { owner, repo }) {
+      try {
+        const { data } = await api.user.getIssues({ owner, repo })
+        commit('SET_USER_ISSUES', data)
         console.log(data)
       } catch (e) {
         console.log(e)

@@ -7,10 +7,10 @@
           <icon name="arrow"></icon>
         </span>
       </button>
-      <div :class="['comments-wrapper', { active: isOpened }]" >
-        <div class="comments-content" v-for="comment in comments" :key="comment.id">
-          <span class="comments-content_user">{{ comment.userName }}</span>
-          <p class="comments-content_text">{{ comment.comment }}</p>
+      <div :class="['comments-wrapper', { active: isOpened }]" v-for="issue in issues" :key="issue.id">
+        <div class="comments-content" >
+          <span class="comments-content_user">{{ issue.user.login }}</span>
+          <p class="comments-content_text">{{ issue.title }}</p>
         </div>
       </div>
     </div>
@@ -19,7 +19,6 @@
 
 <script>
 import icon from '@/icons/icon'
-import comments from '../../../../comments.json'
 
 export default {
   name: 'userComment',
@@ -27,24 +26,22 @@ export default {
     icon
   },
   props: {
-    comment: {
-      type: String,
-      required: true
-    },
-    userName: {
-      type: String,
-      required: true
+    issues: {
+      type: Array,
+      default: () => []
     }
   },
+  emits: ['loadContent'],
   data () {
     return {
-      isOpened: false,
-      comments
+      isOpened: false
     }
   },
   methods: {
     toogle () {
       this.isOpened = !this.isOpened
+      this.$emit('loadContent')
+      console.log(this.issues)
     }
   }
 }

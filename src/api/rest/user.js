@@ -6,16 +6,21 @@ export const getUserData = () => makeRequest({
 })
 
 export const getUserLaiks = () => makeRequest({
-  method: 'Get',
+  method: 'GET',
   url: '/user/starred'
 })
 
-export const starRepo = ({ repo, owner }) => makeRequest({
-  url: `/user/starred/${owner}/${repo}`,
-  method: 'put'
+export const getIssues = ({ owner, repo }) => makeRequest({
+  method: 'GET',
+  url: `/repos/${owner}/${repo}/issues`
 })
 
-export const unStarRepo = ({ repo, owner }) => makeRequest({
-  url: `/user/starred/${owner}/${repo}`,
-  method: 'delete'
+export const starRepo = ({ owner, repo }) => makeRequest({
+  method: 'PUT',
+  url: `/user/starred/${owner}/${repo}`
+})
+
+export const unStarRepo = ({ owner, repo }) => makeRequest({
+  method: 'DELETE',
+  url: `/user/starred/${owner}/${repo}`
 })
