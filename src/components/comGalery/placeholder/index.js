@@ -1,1 +1,2 @@
-export { default as placeholder } from './placeholder'
+export { default as placeStorr } from './placeStorr'
+export { default as placeIssues } from './placeIssues'

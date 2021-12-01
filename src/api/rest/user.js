@@ -15,12 +15,12 @@ export const getIssues = ({ owner, repo }) => makeRequest({
   url: `/repos/${owner}/${repo}/issues`
 })
 
-export const starRepo = ({ owner, repo }) => makeRequest({
+export const getStarRepo = ({ owner, repo }) => makeRequest({
   method: 'PUT',
   url: `/user/starred/${owner}/${repo}`
 })
 
-export const unStarRepo = ({ owner, repo }) => makeRequest({
+export const GetUnStarRepo = ({ owner, repo }) => makeRequest({
   method: 'DELETE',
   url: `/user/starred/${owner}/${repo}`
 })

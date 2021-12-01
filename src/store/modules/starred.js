@@ -3,15 +3,22 @@ import * as api from '@/api'
 export default {
   namespaced: true,
   state: {
-    data: []
+    starred: [],
+    issues: {
+      loading: false
+    }
   },
-  getters: {},
+  getters: {
+  },
   mutations: {
     SET_USER_STARRED (state, starred) {
-      state.data = starred
+      state.starred = starred
     },
     SET_USER_ISSUES (state, issues) {
-      state.data = issues
+      state.issues.data = issues
+    },
+    SET_LOADING (state, payload) {
+      state.issues.loading = payload
     }
   },
   actions: {
@@ -24,13 +31,16 @@ export default {
         console.log(e)
       }
     },
-    async fetchIssues ({ commit }, { owner, repo }) {
+    async fetchIssues ({ commit }, { id, owner, repo }) {
+      commit('SET_LOADING', true)
       try {
-        const { data } = await api.user.getIssues({ owner, repo })
+        const { data } = await api.user.getIssues({ id, owner, repo })
         commit('SET_USER_ISSUES', data)
         console.log(data)
       } catch (e) {
         console.log(e)
+      } finally {
+        commit('SET_LOADING', false)
       }
     }
   }

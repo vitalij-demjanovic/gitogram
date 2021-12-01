@@ -1,14 +1,14 @@
 <template>
   <div class="c-container">
     <div class="comments">
-      <button :class="['comments-btn', { active: isOpened }]" @click="toogle">
-        <p class="comments-btn_txt">{{ isOpened ? 'Hide' : 'View' }} issues</p>
-        <span class="comments-btn_icon">
-          <icon name="arrow"></icon>
-        </span>
-      </button>
-      <div :class="['comments-wrapper', { active: isOpened }]" v-for="issue in issues" :key="issue.id">
-        <div class="comments-content" >
+     <div class="comments-toogle">
+       <toogler @onToogle="openComments"></toogler>
+     </div>
+      <div class="comments-wrapper" v-if="issues && opened">
+        <div class="comments-loading" v-if="$store.state.starred.issues.loading">
+          <placeIssues></placeIssues>
+        </div>
+        <div class="comments-content" v-for="issue in issues" :key="issue.id">
           <span class="comments-content_user">{{ issue.user.login }}</span>
           <p class="comments-content_text">{{ issue.title }}</p>
         </div>
@@ -18,30 +18,36 @@
 </template>
 
 <script>
-import icon from '@/icons/icon'
+import toogler from '@/components/about/aboutComp/toogler/toogler'
+import placeIssues from '@/components/comGalery/placeholder/placeIssues'
 
 export default {
   name: 'userComment',
   components: {
-    icon
+    placeIssues,
+    toogler
   },
   props: {
+    loading: Boolean,
     issues: {
       type: Array,
-      default: () => []
+      default: () => [],
+      extra: () => []
     }
   },
   emits: ['loadContent'],
+
   data () {
     return {
-      isOpened: false
+      opened: false
     }
   },
   methods: {
-    toogle () {
-      this.isOpened = !this.isOpened
-      this.$emit('loadContent')
-      console.log(this.issues)
+    openComments (isOpened) {
+      this.opened = isOpened
+      if (isOpened && this.issues.length === 0) {
+        this.$emit('loadContent')
+      }
     }
   }
 }

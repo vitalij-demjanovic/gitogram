@@ -14,7 +14,9 @@
             :class="[{'active': ndx === slideNdx},]"
             :active="slideNdx === ndx"
             :loading="slideNdx === ndx && loading"
+            :id-f="item.id"
             :content="item.readme"
+            @onFollow="fetchFollow"
           >
           </stor>
             <div class="arrows-next" v-if="ndx < 9" @click="handleSlider(ndx + 1)" :class="[{'active': ndx === slideNdx}]">
@@ -50,14 +52,14 @@ export default {
   data () {
     return {
       slideNdx: 0,
-      sliderPosition: 0,
-      loading: false
+      sliderPosition: 0
     }
   },
   methods: {
     ...mapActions({
       fetchTrending: 'trendings/fetchTrending',
-      fetchReadme: 'trendings/fetchReadme'
+      fetchReadme: 'trendings/fetchReadme',
+      fetchFollow: 'trendings/fetchFollow'
     }),
     async fetchReadmeActiveSlide () {
       const { id, owner, name } = this.trendings[this.slideNdx]

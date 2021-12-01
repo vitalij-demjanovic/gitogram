@@ -44,6 +44,14 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    },
+    async fetchFollow ({ getters }, id) {
+      const { name: repo, owner } = getters.getRepoById(id)
+      try {
+        await api.user.getStarRepo({ owner: owner.login, repo })
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 }

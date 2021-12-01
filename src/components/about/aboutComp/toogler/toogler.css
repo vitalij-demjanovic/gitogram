@@ -1,0 +1,16 @@
+/*comments*/
+.comments-btn {
+    display: flex;
+    align-items: center;
+    margin-top: 18px;
+
+}
+
+.comments-btn_icon {
+    margin-left: 5px;
+    transform: rotate(0deg);
+}
+
+.comments-btn.active > .comments-btn_icon {
+    transform: rotate(180deg);
+}

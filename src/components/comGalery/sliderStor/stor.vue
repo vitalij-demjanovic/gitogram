@@ -12,7 +12,9 @@
       <placeholder v-else></placeholder>
     </div>
     <div class="stor-content_btn">
-      <galleryBtn></galleryBtn>
+      <galleryBtn
+      @click="$emit('onFollow', idF)"
+      ></galleryBtn>
     </div>
   </div>
 </template>
@@ -21,20 +23,19 @@
 import progressBar from '../../comGalery/progress/progressBar'
 import postUser from '@/components/about/aboutComp/postUser/postUser'
 import galleryBtn from '@/components/comGalery/button/galleryBtn'
-import placeholder from '@/components/comGalery/placeholder/placeholder'
+import placeholder from '@/components/comGalery/placeholder/placeStorr'
 import preloader from '@/components/comGalery/preloader/preloader'
 
 export default {
   name: 'stor',
   props: {
+    idF: Number,
+    following: String,
     active: Boolean,
     loading: Boolean,
     avatar: String,
     name: String,
-    content: {
-      type: String,
-      required: true
-    }
+    content: String
   },
   emits: ['onFollow'],
   components: {

@@ -1,0 +1,32 @@
+.profile-data {
+    display: flex;
+    align-items: center;
+}
+
+.photo-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.data-item_name {
+    margin-bottom: 6px;
+}
+
+.data-item_links {
+    margin-bottom: 6px;
+}
+
+.link-repo {
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.link-repo {
+    font-size: 12px;
+}
+
+.data-item_fullName {
+    color: #586069;
+}
