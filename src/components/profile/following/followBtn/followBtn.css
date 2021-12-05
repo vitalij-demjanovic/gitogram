@@ -1,6 +1,6 @@
-.gallery-btn {
-    background: #31AE54;
-    width: 217px;
+.follow-btn {
+    background: #586069;
+    width: 115px;
     height: 35px;
     color: #ffff;
     padding: 8px;
@@ -9,16 +9,16 @@
     transition: all 0.5s ease;
 }
 
+.follow-btn:hover {
+    background: #31AE54;
+}
+
 .grey {
     background: #586069;
 }
 
 .green {
     background: #31AE54;
-}
-
-.gallery-btn:hover {
-    background: #586069;
 }
 
 .pre-white {

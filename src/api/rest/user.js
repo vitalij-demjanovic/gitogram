@@ -10,6 +10,11 @@ export const getUserLaiks = () => makeRequest({
   url: '/user/starred'
 })
 
+export const getUserRepo = () => makeRequest({
+  method: 'GET',
+  url: '/user/repos'
+})
+
 export const getIssues = ({ owner, repo }) => makeRequest({
   method: 'GET',
   url: `/repos/${owner}/${repo}/issues`

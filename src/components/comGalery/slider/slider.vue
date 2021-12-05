@@ -9,6 +9,7 @@
             <icon name="back"></icon>
           </div>
           <stor
+            :status="item.following"
             :avatar="item.owner.avatar_url"
             :name="item.owner.login"
             :class="[{'active': ndx === slideNdx},]"
@@ -17,6 +18,7 @@
             :id-f="item.id"
             :content="item.readme"
             @onFollow="fetchFollow"
+            @unFollow="fetchUnfollow"
           >
           </stor>
             <div class="arrows-next" v-if="ndx < 9" @click="handleSlider(ndx + 1)" :class="[{'active': ndx === slideNdx}]">
@@ -59,7 +61,8 @@ export default {
     ...mapActions({
       fetchTrending: 'trendings/fetchTrending',
       fetchReadme: 'trendings/fetchReadme',
-      fetchFollow: 'trendings/fetchFollow'
+      fetchFollow: 'trendings/fetchFollow',
+      fetchUnfollow: 'trendings/fetchUnfollow'
     }),
     async fetchReadmeActiveSlide () {
       const { id, owner, name } = this.trendings[this.slideNdx]

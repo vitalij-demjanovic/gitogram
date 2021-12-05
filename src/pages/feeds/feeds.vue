@@ -28,7 +28,7 @@
     </template>
     <template #stories>
       <ul class="stories-item">
-        <li class="story" v-for="item in trendings" :key="item.id">
+        <li class="story" v-for="item in getUnStarredOnly" :key="item.id">
           <userStory
             :avatar="item.owner.avatar_url"
             :user-name="item.name"
@@ -40,10 +40,7 @@
       </ul>
     </template>
   </topLine>
-  <div class="about">
-    <router-view name="default"></router-view>
-    <router-view name="extra"></router-view>
-  </div>
+  <router-view name="default"></router-view>
 </template>
 
 <script>
@@ -51,7 +48,7 @@ import topLine from '../../components/topline/topline'
 import icon from '../../icons/icon'
 import userStory from '@/components/userStory/userStory'
 import userLogin from '@/components/userLogin/userLogin'
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'feeds',
@@ -65,6 +62,9 @@ export default {
     ...mapState({
       trendings: state => state.trendings.data,
       user: state => state.user.user
+    }),
+    ...mapGetters({
+      getUnStarredOnly: 'getUnStarredOnly'
     })
   },
   methods: {

@@ -1,39 +1,41 @@
 <template>
   <div class="h-container">
     <div class="profile">
-      <userData
-        :avatar="$store.state.user.user.avatar_url"
-        :user-name="$store.state.user.user.login"
-        :repos="$store.state.user.user.public_repos"
-        :watches="$store.state.user.user.followers"
-        :full-name="$store.state.user.user.name"
-      ></userData>
+      <div class="profile-info">
+        <h1 class="profile-title">My Profile</h1>
+        <userData
+          :avatar="user.user.avatar_url"
+          :user-name="user.user.login"
+          :repos="user.user.public_repos"
+          :watches="starred.length"
+          :full-name="user.user.name"
+        ></userData>
+      </div>
+      <router-view></router-view>
     </div>
   </div>
-
 </template>
 
 <script>
 import userData from '@/components/profile/userData/userData'
-import { mapActions, mapState } from 'vuex'
+import { useStore } from 'vuex'
+import { onMounted, computed } from 'vue'
 
 export default {
   name: 'profile',
   components: {
     userData
   },
-  computed: {
-    ...mapState({
-      user: state => state.user
+  setup () {
+    const { dispatch, state } = useStore()
+    onMounted(() => {
+      dispatch('user/fetchUser')
+      dispatch('starred/fetchStarred')
     })
-  },
-  methods: {
-    ...mapActions({
-      fetchUser: 'user/fetchUser'
-    })
-  },
-  async created () {
-    await this.fetchUser()
+    return {
+      user: computed(() => state.user),
+      starred: computed(() => state.starred.starred)
+    }
   }
 }
 </script>

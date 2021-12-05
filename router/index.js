@@ -5,6 +5,8 @@ import Auth from '../src/pages/auth/auth'
 import gallery from '../src/pages/galery/gallery'
 import about from '@/components/about/about'
 import profile from '@/components/profile/profile'
+import reposs from '@/components/profile/reposs/reposs'
+import following from '@/components/profile/following/following'
 
 const routes = [
   {
@@ -14,11 +16,25 @@ const routes = [
     children: [
       {
         path: '',
-        component: about
+        component: about,
+        name: 'About'
       },
       {
         path: '/profile',
-        component: profile
+        component: profile,
+        name: 'profile',
+        children: [
+          {
+            path: '/profile',
+            component: reposs,
+            name: 'reposs'
+          },
+          {
+            path: '/profile',
+            component: following,
+            name: 'following'
+          }
+        ]
       }
     ]
   },

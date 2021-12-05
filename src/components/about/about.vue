@@ -54,23 +54,28 @@ export default {
     userComment,
     icon
   },
-  props: {
-    comIN: Boolean
+  data () {
+    return {
+      issues: [],
+      cureId: ''
+    }
   },
   methods: {
     ...mapActions({
       fetchStarred: 'starred/fetchStarred',
       fetchIssues: 'starred/fetchIssues'
     }),
-    loadIssues ({ id, owner, repo }) {
-      this.fetchIssues({ id, owner, repo })
-      console.log(repo)
+    async loadIssues ({ id, owner, repo }) {
+      console.log(id)
+      if (this.cureId !== id) {
+        this.issues = await this.fetchIssues({ id, owner, repo })
+        this.cureId = id
+      }
     }
   },
   computed: {
     ...mapState({
-      starred: state => state.starred.starred,
-      issues: state => state.starred.issues.data
+      starred: state => state.starred.starred
     })
   },
   async created () {

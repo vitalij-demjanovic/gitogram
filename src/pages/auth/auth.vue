@@ -35,7 +35,7 @@ export default {
       const gitHubUrl = 'https://github.com/login/oauth/authorize'
       const params = new URLSearchParams()
       params.append('client_id', clientId)
-      params.append('scope', 'repo:status read:user')
+      params.append('scope', 'repo:status public_repo read:user')
       window.location.href = `${gitHubUrl}?${params}`
     }
   },
@@ -54,7 +54,7 @@ export default {
       })
       const { token } = await response.json()
       localStorage.setItem('token', token)
-      this.$router.replace({ name: 'Home' })
+      this.$router.replace({ name: 'About' })
       console.log(token)
     } catch (e) {
       console.log(e)

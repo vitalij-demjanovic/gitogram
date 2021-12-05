@@ -23,8 +23,11 @@
     font-size: 12px;
 }
 
+
+.link-watchers,
 .link-repo {
     font-size: 12px;
+    cursor: pointer;
 }
 
 .data-item_fullName {

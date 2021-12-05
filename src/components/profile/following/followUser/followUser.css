@@ -1,0 +1,35 @@
+.f-container {
+    position: relative;
+}
+
+.following-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.following-info {
+    display: flex;
+    align-items: center;
+}
+
+.following-info_photo {
+    width: 73px;
+    height: 73px;
+    border-radius: 50%;
+    margin-right: 18px;
+}
+
+.info-items_name {
+    margin-bottom: 6px;
+}
+
+.info-items_status {
+    color: #9E9E9EFF;
+}
+
+.following-btn {
+    width: 115px;
+    margin-left: 350px;
+}

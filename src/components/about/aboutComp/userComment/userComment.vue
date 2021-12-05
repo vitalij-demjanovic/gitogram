@@ -4,13 +4,13 @@
      <div class="comments-toogle">
        <toogler @onToogle="openComments"></toogler>
      </div>
-      <div class="comments-wrapper" v-if="issues && opened">
+      <div class="comments-wrapper" v-if="opened">
         <div class="comments-loading" v-if="$store.state.starred.issues.loading">
           <placeIssues></placeIssues>
         </div>
-        <div class="comments-content" v-for="issue in issues" :key="issue.id">
-          <span class="comments-content_user">{{ issue.user.login }}</span>
-          <p class="comments-content_text">{{ issue.title }}</p>
+        <div class="comments-content" v-for="item in issues" :key="item.id">
+            <span class="comments-content_user">{{ item.user.login }}</span>
+            <p class="comments-content_text">{{ item.title }}</p>
         </div>
       </div>
     </div>
@@ -28,15 +28,13 @@ export default {
     toogler
   },
   props: {
-    loading: Boolean,
     issues: {
       type: Array,
-      default: () => [],
-      extra: () => []
-    }
+      default: () => []
+    },
+    ndx: String
   },
   emits: ['loadContent'],
-
   data () {
     return {
       opened: false
@@ -45,7 +43,7 @@ export default {
   methods: {
     openComments (isOpened) {
       this.opened = isOpened
-      if (isOpened && this.issues.length === 0) {
+      if (isOpened) {
         this.$emit('loadContent')
       }
     }

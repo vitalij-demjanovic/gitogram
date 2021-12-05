@@ -5,17 +5,18 @@ export default {
   state: {
     starred: [],
     issues: {
-      loading: false
+      loading: false,
+      data: []
     }
   },
   getters: {
+    getRepoById: (state) => (id) => {
+      return state.starred.find(item => item.id === id)
+    }
   },
   mutations: {
     SET_USER_STARRED (state, starred) {
       state.starred = starred
-    },
-    SET_USER_ISSUES (state, issues) {
-      state.issues.data = issues
     },
     SET_LOADING (state, payload) {
       state.issues.loading = payload
@@ -35,13 +36,16 @@ export default {
       commit('SET_LOADING', true)
       try {
         const { data } = await api.user.getIssues({ id, owner, repo })
-        commit('SET_USER_ISSUES', data)
-        console.log(data)
+        return data
       } catch (e) {
         console.log(e)
       } finally {
         commit('SET_LOADING', false)
       }
+    },
+    async fetchUnfollow ({ commit, getters }, id) {
+      // const { name: repo, owner } = getters.getRepoById(id)
+      console.log('id', id)
     }
   }
 }

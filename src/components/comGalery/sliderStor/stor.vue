@@ -13,8 +13,10 @@
     </div>
     <div class="stor-content_btn">
       <galleryBtn
-      @click="$emit('onFollow', idF)"
-      ></galleryBtn>
+        :loading="status.loading"
+        :theme="status.status ? 'grey' : 'green'"
+      @click="$emit(status.status ? 'unFollow' : 'onFollow', idF)"
+      >{{ status.status ? 'unfollow' : 'follow' }}</galleryBtn>
     </div>
   </div>
 </template>
@@ -29,15 +31,18 @@ import preloader from '@/components/comGalery/preloader/preloader'
 export default {
   name: 'stor',
   props: {
+    status: {
+      type: Array,
+      default: () => []
+    },
     idF: Number,
-    following: String,
     active: Boolean,
     loading: Boolean,
     avatar: String,
     name: String,
     content: String
   },
-  emits: ['onFollow'],
+  emits: ['onFollow', 'unFollow'],
   components: {
     progressBar,
     postUser,

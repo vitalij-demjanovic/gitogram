@@ -1,10 +1,9 @@
 <template>
-    <button :class="['gallery-btn', {'hover-text': withHoverText}, {'grey': disabled}]" :data-hover-text="hoverText">
+    <button :class="['gallery-btn', theme,]">
       <div class="pre-white" v-if="loading">
         <icon name="preWhite"></icon>
       </div>
-      <p  class="btn-text" hover-text="unfollow" v-else>
-        follow
+      <p  class="btn-text" v-else>
         <slot></slot>
       </p>
     </button>
@@ -18,17 +17,16 @@ export default {
   components: {
     icon
   },
+  data () {
+    return {
+      grey: 'grey',
+      green: 'green'
+    }
+  },
   props: {
-    hoverText: {
-      type: String
-    },
+    theme: String,
     loading: Boolean,
     disabled: Boolean
-  },
-  computed: {
-    withHoverText () {
-      return this.hoverText?.length
-    }
   }
 }
 </script>

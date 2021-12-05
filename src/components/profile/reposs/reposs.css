@@ -1,3 +1,41 @@
+.section-repository {
+    width: 740px;
+}
+
+.section-repository_head {
+    margin-bottom: 37px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-repository_span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #9E9E9EFF;
+}
+
+.user-repository {
+    padding: 24px 20px;
+    border: 1px solid #F1F1F1;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+}
+
+.user-repository {
+    max-width: 730px;
+}
+
+.user-repository_title {
+    margin-bottom: 12px;
+}
+
+.user-repository_des {
+    margin-bottom: 32px;
+}
+
+/*Rating*/
+
 .rating {
     display: flex;
     align-items: center;
