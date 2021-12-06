@@ -6,11 +6,13 @@
     </div>
     <div class="following-list" v-for="item in starred" :key="item.id">
         <followUser
+          :follow="item.follow"
           :avatar="item.owner.avatar_url"
           :user-name="item.owner.login"
           :position="item.owner.type"
           :id-f="item.id"
-          @unFollow="callBack"
+          @unFollow="unfollow(item.id)"
+          @follow="follow(item.id)"
         ></followUser>
     </div>
   </div>
@@ -31,12 +33,16 @@ export default {
     onMounted(() => {
       dispatch('starred/fetchStarred')
     })
-    const callBack = () => {
-      dispatch('starred/fetchUnfollow')
+    const unfollow = (id) => {
+      dispatch('starred/fetchUn', id)
+    }
+    const follow = (id) => {
+      dispatch('starred/fetchFoll', id)
     }
     return {
       starred: computed(() => state.starred.starred),
-      callBack
+      unfollow,
+      follow
     }
   }
 }

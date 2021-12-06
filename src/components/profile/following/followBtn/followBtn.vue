@@ -4,7 +4,6 @@
       <icon name="preWhite"></icon>
     </div>
     <p  class="btn-text" v-else>
-      unfollow
       <slot></slot>
     </p>
   </button>

@@ -10,8 +10,10 @@
       </div>
       <div class="following-btn">
        <followBtn
-       @click="$emit('unFollow', idF)"
-       ></followBtn>
+         :theme="follow.status ? 'green' : 'grey'"
+         :loading="follow.loading"
+       @click="$emit(follow.status ? 'follow' : 'unFollow', idF)"
+       >{{ follow.status ? 'follow' : 'unfollow' }}</followBtn>
       </div>
     </div>
   </div>
@@ -25,10 +27,17 @@ export default {
   components: {
     followBtn
   },
-  emits: ['unFollow'],
+  emits: ['unFollow', 'follow'],
   props: {
+    follow: {
+      type: Array,
+      default: () => []
+    },
     idF: Number,
-    avatar: String,
+    avatar: {
+      type: String,
+      required: true
+    },
     userName: String,
     position: String
   }

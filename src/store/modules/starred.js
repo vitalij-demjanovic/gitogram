@@ -16,10 +16,28 @@ export default {
   },
   mutations: {
     SET_USER_STARRED (state, starred) {
-      state.starred = starred
+      state.starred = starred.map(item => {
+        item.follow = {
+          status: false,
+          loading: false,
+          error: ''
+        }
+        return item
+      })
     },
     SET_LOADING (state, payload) {
       state.issues.loading = payload
+    },
+    SET_STAR (state, payload) {
+      state.starred = state.starred.map(repo => {
+        if (payload.id === repo.id) {
+          repo.follow = {
+            ...repo.follow,
+            ...payload.starred
+          }
+        }
+        return repo
+      })
     }
   },
   actions: {
@@ -43,9 +61,65 @@ export default {
         commit('SET_LOADING', false)
       }
     },
-    async fetchUnfollow ({ commit, getters }, id) {
-      // const { name: repo, owner } = getters.getRepoById(id)
-      console.log('id', id)
+    async fetchFoll ({ commit, getters }, id) {
+      const { name: repo, owner } = getters.getRepoById(id)
+      commit('SET_STAR', {
+        id,
+        starred: {
+          status: false,
+          loading: true,
+          error: ''
+        }
+      })
+      try {
+        await api.user.getStarRepo({ owner: owner.login, repo })
+        commit('SET_STAR', {
+          id,
+          starred: {
+            status: true
+          }
+        })
+      } catch (e) {
+        console.log(e)
+      } finally {
+        commit('SET_STAR', {
+          id,
+          starred: {
+            status: false,
+            loading: false
+          }
+        })
+      }
+    },
+    async fetchUn ({ commit, getters }, id) {
+      const { name: repo, owner } = getters.getRepoById(id)
+      commit('SET_STAR', {
+        id,
+        starred: {
+          status: false,
+          loading: true,
+          error: ''
+        }
+      })
+      try {
+        await api.user.GetUnStarRepo({ owner: owner.login, repo })
+        commit('SET_STAR', {
+          id,
+          starred: {
+            status: true
+          }
+        })
+      } catch (e) {
+        console.log(e)
+      } finally {
+        commit('SET_STAR', {
+          id,
+          starred: {
+            status: true,
+            loading: false
+          }
+        })
+      }
     }
   }
 }
