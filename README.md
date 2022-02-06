@@ -1,34 +1,16 @@
-# gitogram
+Create OAuth app 
+profile --> Setting --> Developer Setting --> OAuht Apps --> New OAuht Apps --> 
 
-## Project setup
-```
-npm install
-```
+Fill in:
+Application name - "Gitogram"
+Homepage URL - "http://localhost:8080/"
+Authorization callback URL - "http://localhost:8080/#/auth"
+--> You Get Client ID and Client secrets
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Client ID and Client secrets write to:
+src/pages/auth/exconsts.js 
 
-### Compiles and minifies for production
-```
-npm run build
-```
+export const clientId = ''
+export const clientSecret = ''
 
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Authorization will work.
