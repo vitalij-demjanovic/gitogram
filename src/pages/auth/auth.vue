@@ -23,7 +23,7 @@
 
 <script>
 import icon from '@/icons/icon'
-import { clientId, clientSecret } from '@/pages/auth/consts'
+import { clientId, clientSecret } from '@/pages/auth/exconsts'
 
 export default {
   name: 'aut',
